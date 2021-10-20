@@ -7,6 +7,7 @@ const inputCheck = require("./utils/inputCheck");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
 const db = mysql.createConnection(
     {
         host: 'localhost',
@@ -94,13 +95,9 @@ app.post('/api/candidate', ({ body }, res) => {
     });
 });
 
-
-
 app.use((req, res) => {
     res.status(404).end();
 })
-
-
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
